@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISL Detection Project</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/028/242/417/non_2x/international-day-of-sign-languages-a-pair-of-deaf-and-mute-people-using-sign-language-to-communicate-a-man-and-a-woman-with-hearing-impairment-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-section p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-section a {
+            background-color: #fff;
+            color: #000000;
+            padding: 15px 40px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-section a:hover {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: #f9f9f9;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            width: 280px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial-card img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-size: 18px;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to the ISL Detection</h1>
+        <p>Revolutionizing communication for the hearing impaired with cutting-edge technology.</p>
+        <form action="{{ url_for('Index') }}">
+            <button type="submit" style="background-color: #4c8baf; color: white; padding: 15px 40px; font-size: 20px; text-decoration: none; border-radius: 40px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer;">
+            Learn More
+            </button>
+        </form>
+       
+    </section>
+
+  
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <h2 class="section-title">Key Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <img src="static\images\hand.jpg" alt="Real-Time Detection">
+                <h3>Real-Time Detection</h3>
+                <p>Our system detects ISL signs in real-time with high accuracy for seamless communication.</p>
+            </div>
+            <div class="feature-card">
+                <img src="static\images\speech-text.jpg" alt="Text & Speech Output">
+                <h3>Text & Speech Output</h3>
+                <p>ISL signs are instantly converted into text and speech for enhanced accessibility.</p>
+            </div>
+            <div class="feature-card">
+                <img src="static\images\twohand.jpg" alt="Two-Hand Recognition">
+                <h3>Two-Hand Sign Recognition</h3>
+                <p>The system can recognize complex two-handed ISL signs for a more comprehensive experience.</p>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ISL Detection Project. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

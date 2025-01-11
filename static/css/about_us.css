@@ -1,0 +1,133 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #222;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffffff;
+}
+
+main {
+    padding: 40px;
+}
+
+#about-us {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+
+#about-us h1, #about-us h2 {
+    text-align: center;
+    color: #444;
+}
+
+#about-us h1 {
+    margin-bottom: 20px;
+}
+
+#about-us h2 {
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+#about-us p {
+    font-size: 16px;
+    color: #555;
+    margin: 15px 0;
+}
+
+#about-us ul {
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+#about-us ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #003399;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #ffffff;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Highlight Sections */
+.highlight {
+    background: linear-gradient(135deg, #ffcc00, #ffa500);
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about-us {
+        padding: 20px;
+    }
+
+    #about-us h1, #about-us h2 {
+        font-size: 24px;
+    }
+
+    #about-us ul li {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SignSpeak: Bridging the gap between gestures and communication with Indian Sign Language.">
+    <title>SignSpeak - Indian Sign Language Features</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+                <span class="app-name">SignSpeak</span>
+            </div>
+            <ul class="nav-links">
+               
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <div class="cards-container">
+            <!-- Feature Card 1 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>ISL Recognition</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Recognize a comprehensive library of ISL gestures with cutting-edge AI models.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-language"></i>
+                        <h3>Multi-Language Support</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Translate ISL into multiple Indian languages with speech output.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-video"></i>
+                        <h3>Real-Time Demo</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Interact with ISL gestures live using our real-time demo feature.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get Started Button -->
+        <div class="get-started-container">
+            <a href="{{ url_for('options1') }}" class="start-button">Get Started</a>
+        </div>
+    </main>
+</body>
+</html>

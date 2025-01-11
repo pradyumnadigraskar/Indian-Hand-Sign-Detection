@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISL Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module1.css') }}">
+    <!-- <script src="module1.js" > </script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <script src="module1.js" > </script>
+    <h1>ISL Detection</h1>
+    <div id="video-container">
+        <img src="/video_feed" alt="Video feed" id="video-feed">
+    </div>
+    <h3>Sentence:  <span id="sentence-field"></span></h3>
+    <h3>Final Sentence: <span id="final-field"></span></h3>
+    <div id="buttons">
+        <button id="clear-btn">Clear</button>
+        <button id="space-btn">Space</button>
+        <button id="speak-btn">Speak</button>
+    </div>
+
+
+    <script>
+        // Fetch and display the video stream
+        const videoFeed = document.getElementById('video-feed');
+        videoFeed.src = '/video_feed'; // Set the video stream source
+
+        // Clear the sentence
+        document.getElementById("clear-btn").addEventListener("click", () => {
+            fetch('/clear', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("sentence-field").textContent = "";
+                    document.getElementById("final-field").textContent = "";
+                });
+        });
+
+        // Speak the sentence
+        document.getElementById("speak-btn").addEventListener("click", () => {
+            fetch('/speak', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Spoken:", data.status);
+                });
+        });
+
+        // Periodically fetch updated sentence data
+        setInterval(function() {
+            fetch('/get_sentence')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("sentence-field").textContent = data.sentence;
+                    document.getElementById("final-field").textContent = data.final_sentence;
+                });
+        }, 1000); // Update every second
+    </script>
+</body>
+</html>

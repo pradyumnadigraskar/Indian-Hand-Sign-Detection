@@ -1,0 +1,9 @@
+mediapipe
+numpy
+scikit-learn==1.5.2
+pandas
+tensorflow
+flask
+
+
+

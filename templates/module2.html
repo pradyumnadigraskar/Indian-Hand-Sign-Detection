@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Speech/Text to Indian Sign Language Module">
+    <title>SignSpeak - Speech to Indian Sign Language</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module2_style.css') }}">
+    <!-- Font Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+                <span class="app-name">SignSpeak</span>
+            </div>
+            <ul class="nav-links">
+               
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Button to Start Recording -->
+        <div class="button-container">
+            <button id="startButton" onclick="startRecording()">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>    
+
+        <!-- Status Message -->
+        <div class="status-container">
+            <p id="statusMessage">Click the microphone to start recording</p>
+        </div>
+
+        <!-- Transcription Display -->
+        <div class="transcription-container">
+            <h2>Transcribed Text:</h2>
+            <p id="transcribedText">The transcribed text will appear here.</p>
+        </div>
+
+        <!-- Model Output Section -->
+        <div class="output-container">
+            <h2>Model Output:</h2>
+            <div id="islImages" class="images-container">
+                <!-- Dynamically Generated Images will Appear Here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript to Handle Recording -->
+    <script>
+        function startRecording() {
+            const statusMessage = document.getElementById('statusMessage');
+            const transcribedTextEl = document.getElementById('transcribedText');
+            const islImagesContainer = document.getElementById('islImages');
+
+            // Update Status Message
+            statusMessage.innerText = "Recording started, please start speaking...";
+            transcribedTextEl.innerText = "";
+            islImagesContainer.innerHTML = "";
+
+            // Fetch Request to Start Recording
+            fetch('/start_recording', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    statusMessage.innerText = data.message;
+                    transcribedTextEl.innerText = data.transcribed_text;
+
+                    // Display Images for ISL Output
+                    if (data.image_data && data.image_data.length > 0) {
+                        data.image_data.forEach(imageData => {
+                            const img = document.createElement('img');
+                            img.src = 'data:image/jpeg;base64,' + imageData;
+                            img.alt = 'ISL Image';
+                            islImagesContainer.appendChild(img);
+                        });
+                    } else {
+                        const noImageMessage = document.createElement('p');
+                        noImageMessage.textContent = 'No images found for the transcribed text.';
+                        islImagesContainer.appendChild(noImageMessage);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    statusMessage.innerText = "An error occurred. Please try again.";
+                });
+        }
+    </script>
+</body>
+</html>

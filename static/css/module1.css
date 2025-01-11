@@ -1,0 +1,92 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(120deg, #a1e1fd, #c2e9fb);
+    color: #333;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-top: 20px;
+    color: #ffffff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#video-container {
+    position: relative;
+    margin-top: 30px;
+}
+
+video, #video-feed {
+    border: 4px solid #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+}
+
+h3 {
+    margin-top: 15px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#sentence-field, #final-field {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+#clear-btn {
+    background: linear-gradient(45deg, #ff6f61, #ff9a76);
+}
+
+#space-btn {
+    background: linear-gradient(45deg, #1fab89, #62d2a2);
+}
+
+#speak-btn {
+    background: linear-gradient(45deg, #5d5fee, #857dff);
+}
+
+#clear-btn:hover {
+    background: linear-gradient(45deg, #e8554d, #ff7a66);
+}
+
+#space-btn:hover {
+    background: linear-gradient(45deg, #18836c, #4bb78e);
+}
+
+#speak-btn:hover {
+    background: linear-gradient(45deg, #4b4ace, #716bff);
+}
