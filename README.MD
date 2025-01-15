@@ -180,8 +180,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 For any questions or feedback, please contact:
-- **Email**:swarajsolanke02@gmail.com
-- **GitHub**:(https://github.com/Swarajsolanke)
+- **Email**:pradyumnadigraskar11@gmail.com
+- **GitHub**:(https://github.com/pradyumnadigraskar)
 ---
 
 Thank you for using the Indian Sign Language Detection and Translation Project! Together, let’s make communication inclusive and barrier-free.
